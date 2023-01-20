@@ -5,7 +5,7 @@ const form = document.querySelector('#form-habits')
 const nlwSetup = new NLWSetup(form)
 
 // funções para botão de registro do dia e salvar dados
-const button = document.querySelector('header button')
+const button = document.querySelector('.plus')
 button.addEventListener('click', add)
 form.addEventListener("change", save)
 
@@ -26,7 +26,17 @@ function save(){
     localStorage.setItem('NLWSetup@habits', JSON.stringify(nlwSetup.data))
 }
 
-const data = JSON.parse(localStorage.getItem("NLWSetup@habits")) || {}
+const data = JSON.parse(localStorage.getItem('NLWSetup@habits')) || {}
+
+// funções para limpar histórico
+const clear = document.querySelector('.minus')
+clear.addEventListener('click', clean)
+
+function clean (){
+    localStorage.removeItem('NLWSetup@habits')
+    location.reload()
+}
+
 
 nlwSetup.setData(data)
 nlwSetup.load()
