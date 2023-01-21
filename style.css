@@ -111,3 +111,12 @@ input:checked{
         display: none;
     }
 }
+
+@media (max-width: 375px){
+    header{
+        padding: 10px;
+    }
+    #form-habits{
+        padding: 182px 10px 10px;
+    }
+}
